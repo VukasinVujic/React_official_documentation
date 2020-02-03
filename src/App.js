@@ -1,5 +1,6 @@
 import React from 'react';
 import Table from './Table';
+import Form from './Form';
 
 class App extends React.Component {
     state = {
@@ -20,7 +21,7 @@ class App extends React.Component {
                 name: 'Dennis',
                 job: 'Bartender',
             },
-        ],
+        ],     
     }    
     removeCharacter = index => {
         const {characters} = this.state
@@ -32,14 +33,20 @@ class App extends React.Component {
         })
 
     }
+    handleSubmit = (character) => {
+        this.setState({characters: [...this.state.characters, character]})
+    }
+
     render() {
         const {characters} = this.state
         return (
             <div className="Container">
             <Table charactersData={characters} removeCharacter={this.removeCharacter}/>
+            <Form handleSubmit={this.handleSubmit}/>
         </div>
         )
     }
 }
+
 
 export default App
