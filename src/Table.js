@@ -2,7 +2,8 @@ import React from 'react'
 
  const Table = (props) => {
     const {charactersData, removeCharacter} = props
-        return(
+
+    return(
             <table>
                 <TableHeader />
                 <TableBody charactersData={charactersData} removeCharacter={removeCharacter} />
